@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/scenes/gui/TaskDetails.gd" type="Script" id=1]
+
+[node name="TaskDetails" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 8
+custom_constants/hseparation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heading" type="Label" parent="GridContainer"]
+margin_right = 1024.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+text = "Task Details"
+valign = 1
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 46.0
+text = "subject: "
+
+[node name="Subject" type="LineEdit" parent="GridContainer"]
+margin_top = 54.0
+margin_right = 1024.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="GridContainer"]
+margin_top = 86.0
+margin_right = 1024.0
+margin_bottom = 100.0
+text = "status: "
+
+[node name="Status" type="Label" parent="GridContainer"]
+margin_top = 108.0
+margin_right = 1024.0
+margin_bottom = 122.0
+
+[node name="Label3" type="Label" parent="GridContainer"]
+margin_top = 130.0
+margin_right = 1024.0
+margin_bottom = 144.0
+text = "description: "
+
+[node name="Description" type="TextEdit" parent="GridContainer"]
+margin_top = 152.0
+margin_right = 1024.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 3
+wrap_enabled = true
+
+[node name="Label4" type="Label" parent="GridContainer"]
+margin_top = 280.0
+margin_right = 1024.0
+margin_bottom = 294.0
+text = "notes: "
+
+[node name="Notes" type="TextEdit" parent="GridContainer"]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 488.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+wrap_enabled = true
+
+[node name="Start" type="Button" parent="GridContainer"]
+margin_top = 496.0
+margin_right = 1024.0
+margin_bottom = 516.0
+text = "start"
+
+[node name="InProgressActions" type="HBoxContainer" parent="GridContainer"]
+margin_top = 524.0
+margin_right = 1024.0
+margin_bottom = 544.0
+
+[node name="Pause" type="Button" parent="GridContainer/InProgressActions"]
+margin_right = 338.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "pause"
+
+[node name="Resume" type="Button" parent="GridContainer/InProgressActions"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "resume"
+
+[node name="Complete" type="Button" parent="GridContainer/InProgressActions"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "complete"
+
+[node name="Reopen" type="Button" parent="GridContainer"]
+margin_top = 552.0
+margin_right = 1024.0
+margin_bottom = 572.0
+text = "reopen"
+
+[node name="Save" type="Button" parent="GridContainer"]
+margin_top = 580.0
+margin_right = 1024.0
+margin_bottom = 600.0
+text = "save"
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.776471 )

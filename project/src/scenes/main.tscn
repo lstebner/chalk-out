@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/scenes/gui/NewProjectDialog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/gui/ProjectsList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/gui/TasksList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scenes/gui/TaskDetails.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scenes/gui/ProjectInfo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/scenes/MainMenuButton.gd" type="Script" id=6]
+[ext_resource path="res://src/scenes/main.gd" type="Script" id=7]
+[ext_resource path="res://src/scenes/gui/CompletedTasks.tscn" type="PackedScene" id=8]
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.4, 0.537255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBar" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 36.0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MenuBar"]
+margin_right = 1024.0
+margin_bottom = 36.0
+color = Color( 0.0823529, 0.0823529, 0.0823529, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MenuBar"]
+margin_right = 1024.0
+margin_bottom = 36.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="CreateMenuButton" type="MenuButton" parent="VBoxContainer/MenuBar/MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 28.0
+size_flags_horizontal = 0
+custom_constants/hseparation = 8
+text = "Menu"
+script = ExtResource( 6 )
+
+[node name="Main" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Main"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 1008.0
+margin_bottom = 544.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/HBoxContainer"]
+margin_right = 320.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+
+[node name="ProjectsList" parent="VBoxContainer/Main/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 320.0
+margin_bottom = 266.0
+size_flags_vertical = 3
+
+[node name="ProjectInfo" parent="VBoxContainer/Main/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 270.0
+margin_right = 320.0
+margin_bottom = 536.0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/Main/HBoxContainer"]
+margin_left = 336.0
+margin_right = 656.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+
+[node name="Incomplete" type="MarginContainer" parent="VBoxContainer/Main/HBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TasksList" parent="VBoxContainer/Main/HBoxContainer/TabContainer/Incomplete" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 312.0
+margin_bottom = 500.0
+
+[node name="Completed" type="MarginContainer" parent="VBoxContainer/Main/HBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="CompletedTasks" parent="VBoxContainer/Main/HBoxContainer/TabContainer/Completed" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 312.0
+margin_bottom = 500.0
+
+[node name="TaskDetails" parent="VBoxContainer/Main/HBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 672.0
+margin_right = 992.0
+margin_bottom = 536.0
+
+[node name="NewProjectDialog" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="ExportFileDialog" type="FileDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 400, 140 )
+access = 2
+current_dir = "/Users/lukestebner/Dropbox/godot-games/tasks"
+current_file = "tasks_data.txt"
+current_path = "/Users/lukestebner/Dropbox/godot-games/tasks/tasks_data.txt"
+
+[node name="ImportFileDialog" type="FileDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 400, 140 )
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/Users/lukestebner/Dropbox/godot-games/tasks"
+current_file = "tasks_data.txt"
+current_path = "/Users/lukestebner/Dropbox/godot-games/tasks/tasks_data.txt"

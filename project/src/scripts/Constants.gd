@@ -1,0 +1,17 @@
+extends Node
+
+enum TASK_STATES {
+    OPEN,
+    IN_PROGRESS,
+    BLOCKED,
+    PAUSED,
+    COMPLETED,
+}
+
+enum PROJECT_STATES {
+    IDEA,
+    PROTOTYPE,
+    DEVELOPMENT,
+    MAINTENANCE,
+    ARCHIVED,
+}
