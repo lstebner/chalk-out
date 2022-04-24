@@ -19,7 +19,7 @@ func _draw():
     if !project: return
     
     for task in project.tasks:
-        if task.current_state != Constants.TASK_STATES.COMPLETED and task.current_state != Constants.TASK_STATES.OPEN:
+        if task.is_in_progress():
             tasks.append(task)
             item_list.add_item(task.subject)
         

@@ -19,7 +19,7 @@ func _draw():
     if !project: return
     
     for task in project.tasks:
-        if task.current_state == Constants.TASK_STATES.COMPLETED:
+        if task.is_completed():
             tasks.append(task)
             item_list.add_item(task.subject)
         
