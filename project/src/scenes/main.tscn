@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/scenes/gui/NewProjectDialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/gui/ProjectsList.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/scenes/MainMenuButton.gd" type="Script" id=6]
 [ext_resource path="res://src/scenes/main.gd" type="Script" id=7]
 [ext_resource path="res://src/scenes/gui/CompletedTasks.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/scenes/gui/InProgressTasks.tscn" type="PackedScene" id=9]
 
 [node name="main" type="Control"]
 anchor_right = 1.0
@@ -108,7 +109,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
-[node name="Incomplete" type="MarginContainer" parent="VBoxContainer/Main/HBoxContainer/TabContainer"]
+[node name="In Progress" type="MarginContainer" parent="VBoxContainer/Main/HBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -116,7 +117,22 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="TasksList" parent="VBoxContainer/Main/HBoxContainer/TabContainer/Incomplete" instance=ExtResource( 3 )]
+[node name="InProgressTasks" parent="VBoxContainer/Main/HBoxContainer/TabContainer/In Progress" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 312.0
+margin_bottom = 500.0
+
+[node name="Backlog" type="MarginContainer" parent="VBoxContainer/Main/HBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TasksList" parent="VBoxContainer/Main/HBoxContainer/TabContainer/Backlog" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 312.0
@@ -143,6 +159,7 @@ anchor_bottom = 0.0
 margin_left = 672.0
 margin_right = 992.0
 margin_bottom = 536.0
+size_flags_vertical = 3
 
 [node name="NewProjectDialog" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -152,9 +169,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 400, 140 )
 access = 2
-current_dir = "/Users/lukestebner/Dropbox/godot-games/tasks"
+current_dir = "/Dropbox/godot-games/tasks/project"
 current_file = "tasks_data.txt"
-current_path = "/Users/lukestebner/Dropbox/godot-games/tasks/tasks_data.txt"
+current_path = "/Dropbox/godot-games/tasks/project/tasks_data.txt"
 
 [node name="ImportFileDialog" type="FileDialog" parent="."]
 anchor_right = 1.0
@@ -163,6 +180,6 @@ rect_min_size = Vector2( 400, 140 )
 window_title = "Open a File"
 mode = 0
 access = 2
-current_dir = "/Users/lukestebner/Dropbox/godot-games/tasks"
+current_dir = "/Dropbox/godot-games/tasks/project"
 current_file = "tasks_data.txt"
-current_path = "/Users/lukestebner/Dropbox/godot-games/tasks/tasks_data.txt"
+current_path = "/Dropbox/godot-games/tasks/project/tasks_data.txt"

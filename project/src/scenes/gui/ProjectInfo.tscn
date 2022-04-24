@@ -69,6 +69,7 @@ margin_bottom = 568.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 show_line_numbers = true
+wrap_enabled = true
 
 [node name="Save" type="Button" parent="MarginContainer/GridContainer"]
 margin_top = 572.0
@@ -77,6 +78,7 @@ margin_bottom = 592.0
 text = "save"
 
 [node name="Overlay" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.780392 )
